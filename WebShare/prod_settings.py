@@ -1,4 +1,4 @@
-from WebShare.sittings import *
+from WebShare.settings import *
 
 DEBUG = False
 
