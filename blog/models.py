@@ -10,7 +10,7 @@ class TimespamtedModel(models.Model):
 
 # Create your models here.
 
-class Post(TimespamtedModel):
+class Poste(TimespamtedModel):
     title = models.CharField(max_length=50)
     file = models.FileField()
     name = models.CharField(max_length=255)
