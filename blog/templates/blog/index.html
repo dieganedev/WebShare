@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}>
+
+{% block content %}    
+    <h1>Il y'a {{ postes | length }} fichier(s) disponible(s) </h1>
+    {% for poste in postes %}
+        <article>
+            <h2><a href = "{% url 'blog:show' poste.id %}">#{{ poste.id }} - {{ poste.title | upper }}</a></h2>
+            <h2>{{ poste.file }}</h2>
+            <h2>{{ poste.name }}</h2>
+            <p>{{ poste.tagline | truncatewords:3 }}</p>
+            <p><a href = "{% url 'blog:show' poste.id %}">Lire la suite</a></p>
+        </article>
+
+        {% if not forloop.last %}
+            <br><br>
+        {% endif %}sssss
+
+    {% empty %}
+        <p>👉Désolé, pas de poste disponible</p>  
+    {% endfor %}
+{% endblock %}
+
+ 

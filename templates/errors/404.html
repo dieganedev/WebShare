@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Erreur 404{% endblock %}
+{% block content %}
+    <h1>Erreur 404</h1>
+    <h2><em>{{ error }}</em></h2>
+
+    <p>🙋Ooops, it seems like you're lost. Try to go back to <a href="{% url 'home' %}">homepage</a>.</p>
+{% endblock %}    

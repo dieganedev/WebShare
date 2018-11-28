@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+<h1>Cours | {{ poste.title}}</h1>
+
+{% block content %}
+    <article>
+        <h2 class="title">#{{ poste.id }} - {{poste.title | upper}}</h2>
+        <h2>{{ poste.file }}</h2>
+        <h2>{{ poste.name }}</h2>
+        <p class="content">{{ poste.tagline }}</p>
+    </article>
+
+    <hr>
+
+    <p><a href="{% url 'blog:index' %}">👈Tous les postes</a></p>
+
+{% endblock %}
+
+

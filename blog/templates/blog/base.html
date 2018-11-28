@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1>WebShare</h1>
+
+    {% block content %}{% endblock %}
+
+{% endblock %}

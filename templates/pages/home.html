@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+    <h1>Bienvenue dans votre site de partage de fichier WebShare!</h1>
+    <div class="alert alert-primary" role="alert">
+        Une simple alerte principale, allez-y!👇
+    </div>
+    <p><a href="{% url 'blog:index' %}">Visiter Webshare</a></p>
+
+    <h1>Exemple de fichier <span class="badge badge-primary">Cours</span></h1>
+    <h2>Exemple de fichier <span class="badge badge-primary">Documentation</span></h2>
+    <h3>Exemple de fichier <span class="badge badge-primary">Rapport</span></h3>
+    <h4>Exemple de fichier <span class="badge badge-primary">Projet</span></h4>
+    <h5>Exemple de fichier <span class="badge badge-primary">Information générale</span></h5>
+    <h6>Exemple de fichier <span class="badge badge-primary">Autre</span></h6>
+{% endblock %}
