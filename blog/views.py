@@ -6,7 +6,7 @@ from . import models
 
 # Create your views here.
 def index(request):
-    postes = models.Liste.objects.all()
+    postes = models.Liste.objects.order_by('-created_at')
     return render(request, 'blog/index.html', {'postes':postes})
 
 def show(request, id):
