@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
-from django.conf.urls import handler404, handler500
+from django.conf.urls import handler404, handler500, url
+from rest_framework.documentation import include_docs_urls
+
 
 from . import views
 
@@ -29,6 +31,10 @@ urlpatterns = [
     path('about/', views.about, name = 'about'),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
+    url('docs/', include_docs_urls(title='My API title')),
+
+
+
 ]
 
 if settings.DEBUG:

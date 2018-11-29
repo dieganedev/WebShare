@@ -12,6 +12,18 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name, default_value = None):
+    try:
+        return os.env[var_name]
+    except KeyError:
+        if default_value is None:
+            error_msg = "Set the {} environment variable.".format(var_name)
+            raise ImproperlyConfigured(error_msg)
+        else:
+            return default_value
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%dtj757v7puy8yn-c6sc(u+ji5%*9(y-4jbh^*28wt2n2dv^&6'
+SECRET_KEY = get_env_variable('SECRET_KEY', '%dtj757v7puy8yn-c6sc(u+ji5%*9(y-4jbh^*28wt2n2dv^&6')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -108,6 +120,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 
 # Internationalization
