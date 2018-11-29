@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'blog.apps.BlogConfig',
+
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
