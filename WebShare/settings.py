@@ -16,7 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 def get_env_variable(var_name, default_value = None):
     try:
-        return os.env[var_name]
+        return os.environ[var_name]
     except KeyError:
         if default_value is None:
             error_msg = "Set the {} environment variable.".format(var_name)
