@@ -10,7 +10,7 @@ DATABASES['default'] = dj_database_url.config()
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
-STATICFILES_STORAGE = 'whitenose.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SECRET_KEY = '0eg50#9m3cz44#-vdk)u+q_vmkfwy)9psoe@m8k901mra3zim#'
 
