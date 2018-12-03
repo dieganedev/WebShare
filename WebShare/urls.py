@@ -17,10 +17,9 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls import handler404, handler500, url
-from rest_framework.documentation import include_docs_urls
-
 
 from . import views
+
 
 handler404 = 'WebShare.views.handler404'
 handler500 = 'WebShare.views.handler500'
@@ -31,9 +30,6 @@ urlpatterns = [
     path('about/', views.about, name = 'about'),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
-    url('docs/', include_docs_urls(title='My API title')),
-
-
 
 ]
 

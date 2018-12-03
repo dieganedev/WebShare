@@ -1,5 +1,5 @@
 from django.db import models
-
+from django import forms
 
 class TimespamtedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -18,6 +18,9 @@ class Liste(TimespamtedModel):
 
     def __str__(self):
         return self.title
+
+class FileFieldForm(forms.Form):
+    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
 
 
